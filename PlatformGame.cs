@@ -2,14 +2,19 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace _1514Platformer_Full
+namespace PlatformerGame
 {
-    public class Game1 : Game
+    public class PlatformGame : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+        Texture2D boxTop, boxBottom, boxLeft, boxRight;
+        Transform GO_Transform;
+        GameObject player;
+
+
+        public PlatformGame()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -21,6 +26,9 @@ namespace _1514Platformer_Full
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            GO_Transform = new Transform(Vector2.Zero, 0, 1);
+            player = new GameObject(this, GO_Transform);
+            
         }
 
         protected override void LoadContent()
@@ -44,7 +52,7 @@ namespace _1514Platformer_Full
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            
 
             base.Draw(gameTime);
         }
