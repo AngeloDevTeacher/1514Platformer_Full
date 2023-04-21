@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace PlatformerGame
 {
     public class PlatformGame : Game
@@ -12,6 +13,9 @@ namespace PlatformerGame
         Texture2D boxTop, boxBottom, boxLeft, boxRight;
         Transform GO_Transform;
         GameObject player;
+        Rectangle timer;
+
+        Rectangle testRect = new Rectangle(0,0,30,30);
 
 
         public PlatformGame()
@@ -26,8 +30,9 @@ namespace PlatformerGame
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            GO_Transform = new Transform(Vector2.Zero, 0, 1);
+            GO_Transform = new Transform(new Vector2(30,30), 0, 1);
             player = new GameObject(this, GO_Transform);
+            Window.Title = player.Transform.Location(testRect.Size).ToString();
             
         }
 
