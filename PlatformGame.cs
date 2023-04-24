@@ -30,9 +30,9 @@ namespace PlatformerGame
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            GO_Transform = new Transform(new Vector2(30,30), 0, 1);
+            GO_Transform = new Transform(new Vector2(0,0), 0, 1);
             player = new GameObject(this, GO_Transform);
-            Window.Title = player.Transform.Location(testRect.Size).ToString();
+            Window.Title = "DMIT 1514 - Platformer Game (2023)";
             
         }
 
