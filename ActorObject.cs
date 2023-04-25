@@ -19,7 +19,7 @@ namespace PlatformerGame
         protected const int MoveSpeed = 150;
 
         protected Vector2 _velocity;
-        internal Vector2 Velocity { get { return _velocity; } set { _velocity = value; } }
+        internal Vector2 Velocity => _velocity;
 
         Point spriteDimensions;
 
