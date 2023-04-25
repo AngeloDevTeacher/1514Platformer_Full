@@ -5,9 +5,10 @@ namespace PlatformerGame
 {
     internal class GameObject : DrawableGameComponent
     {
-        Transform _transform;
-        Rectangle _rectangleBounds;
-        Texture2D _texture;
+        internal Transform _transform;
+        internal Rectangle _rectangleBounds;
+        internal Texture2D _texture;
+        internal Vector2 Position => _transform.Position;
 
 
         // Each child should override/make a new spritebatch.
@@ -17,7 +18,7 @@ namespace PlatformerGame
         public Transform Transform => _transform;
         public Rectangle RectangleBounds => _rectangleBounds;
         public Texture2D Texture => _texture;
-        public GameObject(Game game, Transform transform) : base(game)
+        public GameObject(Game game, Transform transform, Rectangle rectangle, Texture2D texture) : base(game)
         {
             if (spriteBatch is null)
             {
@@ -25,12 +26,14 @@ namespace PlatformerGame
             }
 
             _transform = transform;
+            _rectangleBounds = rectangle;
+            _texture = texture;
             game.Components.Add(this);
         }
-        public override void Initialize()
-        {
-            base.Initialize();
-        }
+        //public override void Initialize()
+        //{
+        //    base.Initialize();
+        //}
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -38,7 +41,7 @@ namespace PlatformerGame
         }
         public override void Draw(GameTime gameTime)
         {
-            base.Draw(gameTime);
+            //base.Draw(gameTime);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             spriteBatch.Draw(_texture, _transform.Position, _texture.Bounds, Color.White, _transform.Rotation, _texture.Bounds.Center.ToVector2(), _transform.Scale, SpriteEffects.None, 0);
             spriteBatch.End();
