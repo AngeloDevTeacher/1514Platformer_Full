@@ -88,7 +88,7 @@ namespace PlatformerGame
         }
         internal void Land(Rectangle colliderRect)
         {
-            if(_State == ActorState.Jump)
+            if(_velocity.Y>0)
             {
                 _transform.SetPosition(_transform.Position.X,colliderRect.Top - _rectangleBounds.Height + 1);
                 _velocity.Y = 0;
