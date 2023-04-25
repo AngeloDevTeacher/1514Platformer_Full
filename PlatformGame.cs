@@ -36,7 +36,7 @@ namespace PlatformerGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            p = new Platform(new Vector2(0, Window.ClientBounds.Height-40), new Vector2(50, 25), "");
+            p = new Platform(new Vector2(120, Window.ClientBounds.Height-40), new Vector2(50, 25), "");
             base.Initialize();
             GO_Transform = new Transform(new Vector2(48,24), 0, 1);
             player = new ActorObject(this, GO_Transform, testRect, playerIdle, playerSet);

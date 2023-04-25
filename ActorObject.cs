@@ -33,11 +33,10 @@ namespace PlatformerGame
 
         public override void Update(GameTime gameTime)
         {
-            KeyboardState currentState = Keyboard.GetState();
+            _rectangleBounds.Location = _transform.Position.ToPoint();
             _CelPlayer.Update(gameTime);
             _velocity.Y += PlatformGame.Gravity;
             _transform.MovePosition(Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds);
-
             if (Math.Abs(_velocity.Y) > PlatformGame.Gravity)
             {
                 _State = ActorState.Jump;
